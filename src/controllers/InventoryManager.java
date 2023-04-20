@@ -34,8 +34,9 @@ public class InventoryManager {
         this.inventory.setOptimalQuantity((int)Math.ceil(Math.sqrt(a)));
     }
     
-    public void calculateCosts(){
+    public void makeCalculations(){
         int quantity = this.inventory.getExtraUnits() + this.inventory.getOptimalQuantity();
+        int timesOrdered = (int)Math.ceil(this.inventory.getExpectedDemand()/quantity);
         double orderingCost = Math.round(this.inventory.getExpectedDemand()*this.inventory.getOrderingUnitaryCost()/quantity);
         double storingCost = Math.round(quantity/2*this.inventory.getStoringUnitaryCost());
         double unitCost = this.inventory.getExpectedDemand()*this.inventory.getUnitaryPrice();
@@ -44,6 +45,7 @@ public class InventoryManager {
         this.inventory.setTotalOrderingCost(orderingCost);
         this.inventory.setTotalStoringCost(storingCost);
         this.inventory.setTotalUnitsCost(unitCost);
+        this.inventory.setTimesOrdered(timesOrdered);
     }
     
 }

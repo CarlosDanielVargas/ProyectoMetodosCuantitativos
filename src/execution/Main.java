@@ -15,24 +15,33 @@ public class Main {
         InventoryManager manager = new InventoryManager(1000,9.99,10,1);
         Inventory inventory = manager.getInventory();
         manager.economicOrderQuantity();
-        manager.calculateCosts();
+        manager.makeCalculations();
         System.out.println("Caso 1");
         System.out.println(inventory.getOptimalQuantity());
         System.out.println(inventory.getTotalCost());
+        System.out.println(inventory.getTimesOrdered());
+        System.out.println("-----------------------------------");
         System.out.println("Caso 2");
         inventory.setOptimalQuantity(200);
         inventory.setExtraUnits(10);
-        manager.calculateCosts();
+        manager.makeCalculations();
         System.out.println(inventory.getTotalCost());
+        System.out.println(inventory.getTimesOrdered());
+        System.out.println("-----------------------------------");
         System.out.println("Caso 3");
         inventory.setOptimalQuantity(300);
         inventory.setExtraUnits(30);
-        manager.calculateCosts();
+        manager.makeCalculations();
         System.out.println(inventory.getTotalCost());
+        System.out.println(inventory.getTimesOrdered());
+        System.out.println("-----------------------------------");
         System.out.println("Caso 4");
         inventory.setOptimalQuantity(400);
         inventory.setExtraUnits(40);
-        manager.calculateCosts();
+        manager.makeCalculations();
         System.out.println(inventory.getTotalCost());
+        System.out.println(inventory.getTimesOrdered());
+        System.out.println("-----------------------------------");
+        System.out.println();
     }
 }

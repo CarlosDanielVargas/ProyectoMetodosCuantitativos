@@ -131,5 +131,11 @@ public class Inventory {
     public void setTotalUnitsCost(double totalUnitsCost) {
         this.totalUnitsCost = totalUnitsCost;
     }
-    
+    public int getTimesOrdered() {
+        return timesOrdered;
+    }
+
+    public void setTimesOrdered(int timesOrdered) {
+        this.timesOrdered = timesOrdered;
+    }
 }
