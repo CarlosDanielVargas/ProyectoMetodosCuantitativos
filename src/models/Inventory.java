@@ -17,30 +17,26 @@ public class Inventory {
     private double totalOrderingCost;
     private double totalStoringCost;
     private double totalUnitsCost;
-    private int optimalQuantity;
-    private int extraUnits;
+    private int unitsToStore;
     private double totalCost;
-    private int timesOrdered;
+    private int timesToOrder;
     
-
-    public Inventory(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost, int extraUnits) {
-        this.expectedDemand = expectedDemand;
-        this.unitaryPrice = unitaryPrice;
-        this.orderingUnitaryCost = orderingCost;
-        this.storingUnitaryCost = storingCost;
-        this.extraUnits = extraUnits;
-        this.optimalQuantity = 0;
-    }
 
     public Inventory(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost) {
         this.expectedDemand = expectedDemand;
         this.unitaryPrice = unitaryPrice;
         this.orderingUnitaryCost = orderingCost;
         this.storingUnitaryCost = storingCost;
-        this.optimalQuantity = 0;
-        this.extraUnits = 0;
+        this.unitsToStore = 0;
     }
-    
+
+    public Inventory(int expectedDemand, double unitaryPrice, double orderingUnitaryCost, double storingUnitaryCost, int unitsToStore) {
+        this.expectedDemand = expectedDemand;
+        this.unitaryPrice = unitaryPrice;
+        this.orderingUnitaryCost = orderingUnitaryCost;
+        this.storingUnitaryCost = storingUnitaryCost;
+        this.unitsToStore = unitsToStore;
+    }
     
     
     public Inventory()   {
@@ -48,8 +44,7 @@ public class Inventory {
         this.unitaryPrice = 0;
         this.orderingUnitaryCost = 0;
         this.storingUnitaryCost = 0;
-        this.optimalQuantity = 0;
-        this.extraUnits = 0;
+        this.unitsToStore = 0;
     }
 
     public int getExpectedDemand() {
@@ -84,20 +79,12 @@ public class Inventory {
         this.storingUnitaryCost = storingUnitaryCost;
     }
 
-    public int getOptimalQuantity() {
-        return optimalQuantity;
+    public int getUnitsToStore() {
+        return unitsToStore;
     }
     
-    public void setOptimalQuantity(int optimalQuantity) {
-        this.optimalQuantity = optimalQuantity;
-    }
-
-    public int getExtraUnits() {
-        return extraUnits;
-    }
-
-    public void setExtraUnits(int extraUnits) {
-        this.extraUnits = extraUnits;
+    public void setUnitsToStore(int unitsToStore) {
+        this.unitsToStore = unitsToStore;
     }
 
     public double getTotalOrderingCost() {
@@ -131,11 +118,18 @@ public class Inventory {
     public void setTotalUnitsCost(double totalUnitsCost) {
         this.totalUnitsCost = totalUnitsCost;
     }
-    public int getTimesOrdered() {
-        return timesOrdered;
+    public int getTimesToOrder() {
+        return timesToOrder;
     }
 
-    public void setTimesOrdered(int timesOrdered) {
-        this.timesOrdered = timesOrdered;
+    public void setTimesToOrder(int timesToOrder) {
+        this.timesToOrder = timesToOrder;
     }
+
+    @Override
+    public String toString() {
+        return "Inventory{" + "expectedDemand=" + expectedDemand + ", unitaryPrice=" + unitaryPrice + ", orderingUnitaryCost=" + orderingUnitaryCost + ", storingUnitaryCost=" + storingUnitaryCost + ", totalOrderingCost=" + totalOrderingCost + ", totalStoringCost=" + totalStoringCost + ", totalUnitsCost=" + totalUnitsCost + ", unitsToStore=" + unitsToStore + ", totalCost=" + totalCost + ", timesToOrder=" + timesToOrder + '}';
+    }
+    
+    
 }
