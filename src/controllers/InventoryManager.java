@@ -11,14 +11,17 @@ import models.Inventory;
  */
 public class InventoryManager {
     
+    private static InventoryManager INVENTORY_MANAGER;
     private Inventory inventory;
 
-    public InventoryManager(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost) {
-        this.inventory = new Inventory(expectedDemand, unitaryPrice, orderingCost, storingCost);
+    private InventoryManager() {
     }
 
-    public InventoryManager(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost, int extraUnits) {
-        this.inventory = new Inventory(expectedDemand, unitaryPrice, orderingCost, storingCost, extraUnits);
+    public static InventoryManager getInventoryManager() {
+        if (INVENTORY_MANAGER == null) {
+            INVENTORY_MANAGER = new InventoryManager();
+        }
+        return INVENTORY_MANAGER;
     }
     
     public Inventory getInventory() {
@@ -31,11 +34,11 @@ public class InventoryManager {
     
     public void economicOrderQuantity() {
         double a = (2*this.inventory.getExpectedDemand()*this.inventory.getOrderingUnitaryCost())/this.inventory.getStoringUnitaryCost();
-        this.inventory.setOptimalQuantity((int)Math.ceil(Math.sqrt(a)));
+        this.inventory.setUnitsToStore((int)Math.ceil(Math.sqrt(a)));
     }
     
     public void makeCalculations(){
-        int quantity = this.inventory.getExtraUnits() + this.inventory.getOptimalQuantity();
+        int quantity = this.inventory.getUnitsToStore();
         int timesOrdered = (int)Math.ceil(this.inventory.getExpectedDemand()/quantity);
         double orderingCost = Math.round(this.inventory.getExpectedDemand()*this.inventory.getOrderingUnitaryCost()/quantity);
         double storingCost = Math.round(quantity/2*this.inventory.getStoringUnitaryCost());
@@ -45,7 +48,7 @@ public class InventoryManager {
         this.inventory.setTotalOrderingCost(orderingCost);
         this.inventory.setTotalStoringCost(storingCost);
         this.inventory.setTotalUnitsCost(unitCost);
-        this.inventory.setTimesOrdered(timesOrdered);
+        this.inventory.setTimesToOrder(timesOrdered);
     }
     
 }
