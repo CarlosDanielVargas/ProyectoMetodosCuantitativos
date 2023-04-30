@@ -76,23 +76,18 @@ public class InformationPanel extends javax.swing.JPanel {
         tbInventoryData.setEnabled(false);
         tbInventoryData.setMaximumSize(new java.awt.Dimension(250, 100));
         tbInventoryData.setMinimumSize(new java.awt.Dimension(30, 100));
+        tbInventoryData.setPreferredSize(new java.awt.Dimension(900, 160));
         spInformationTable.setViewportView(tbInventoryData);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spInformationTable)
-                .addContainerGap())
+            .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
