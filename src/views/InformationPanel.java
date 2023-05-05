@@ -40,6 +40,8 @@ public class InformationPanel extends javax.swing.JPanel {
         tableModel.addRow(new Object[] {"Costo de orden", userInventory.getOrderingUnitaryCost()});
         tableModel.addRow(new Object[] {"Costo unitario al almacenar", userInventory.getStoringUnitaryCost()});
         tableModel.addRow(new Object[] {"Cantidad de unidades óptima", userInventory.getUnitsToStore()});
+        tableModel.addRow(new Object[] {"Inventario promedio", userInventory.getUnitsToStore()/2});
+        tableModel.addRow(new Object[] {"Veces a ordenar", userInventory.getTimesToOrder()});
         tableModel.addRow(new Object[] {"Costo total por órdenes", userInventory.getTotalOrderingCost()});
         tableModel.addRow(new Object[] {"Costo total por almacenaje", userInventory.getTotalStoringCost()});
         tableModel.addRow(new Object[] {"Costo total de las unidades", userInventory.getTotalUnitsCost()});
@@ -65,34 +67,31 @@ public class InformationPanel extends javax.swing.JPanel {
                 {"Costo de ordenar", null},
                 {"Costo de inventariado por unidad", null},
                 {"Cantidad de unidades óptima", null},
+                {"Inventario promedio", null},
+                {"Cantidad de órdenes", ""},
                 {"Costo total para ordenar", null},
                 {"Costo total de inventariado", null},
                 {"Costo total general", null}
             },
             new String [] {
-                "Valores", "Caso 1"
+                "Valores", "Inventario"
             }
         ));
         tbInventoryData.setEnabled(false);
         tbInventoryData.setMaximumSize(new java.awt.Dimension(250, 100));
         tbInventoryData.setMinimumSize(new java.awt.Dimension(30, 100));
+        tbInventoryData.setPreferredSize(new java.awt.Dimension(900, 160));
         spInformationTable.setViewportView(tbInventoryData);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spInformationTable)
-                .addContainerGap())
+            .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

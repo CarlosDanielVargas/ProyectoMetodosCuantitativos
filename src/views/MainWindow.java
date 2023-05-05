@@ -6,7 +6,11 @@ package views;
 
 import controllers.GeneralController;
 import controllers.UIController;
+import java.util.HashSet;
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -23,6 +27,11 @@ public class MainWindow extends javax.swing.JFrame {
         this.generalController = GeneralController.getGeneralController();
         this.uIController = UIController.getUIController();
         initComponents();
+        ResultsLabel.setVisible(false);
+        JScrollPane scroll = new JScrollPane();
+        this.getContentPane().add(scroll);
+        this.setSize(969,1000);
+        this.btnGenerateGraphs.setVisible(false);
     }
 
     /**
@@ -34,172 +43,356 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnActions = new javax.swing.JPanel();
-        btAddData = new javax.swing.JButton();
-        btnMakeCalculations = new javax.swing.JButton();
-        btnSeeData = new javax.swing.JButton();
-        btnSeeComparations = new javax.swing.JButton();
-        tbTitle = new javax.swing.JLabel();
-        pnHeader = new javax.swing.JPanel();
-        pnData = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        LeftPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        RightPanel = new javax.swing.JPanel();
+        SunbrightLabel = new javax.swing.JLabel();
+        eoqLabel = new javax.swing.JLabel();
+        DemandaEsperadaTextField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        PrecioTextField = new javax.swing.JTextField();
+        CostoAlmaceTextField = new javax.swing.JTextField();
+        CostoTextField = new javax.swing.JTextField();
+        CalculateBtn = new javax.swing.JButton();
+        SeparatorPanel = new javax.swing.JPanel();
+        resultsPanel = new javax.swing.JPanel();
+        ResultsLabel = new javax.swing.JLabel();
+        resultsPanel1 = new javax.swing.JPanel();
+        btnGenerateGraphs = new javax.swing.JButton();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 400));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1000, 1300));
+        setSize(new java.awt.Dimension(969, 1100));
 
-        pnActions.setBackground(new java.awt.Color(0, 51, 102));
+        LeftPanel.setBackground(new java.awt.Color(227, 243, 243));
 
-        btAddData.setText("Agregar datos");
-        btAddData.setBorderPainted(false);
-        btAddData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAddDataActionPerformed(evt);
-            }
-        });
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/f0ee5783540344eea0050f65ff12f81b (1).png"))); // NOI18N
 
-        btnMakeCalculations.setText("Calcular cantidad óptima");
-        btnMakeCalculations.setBorderPainted(false);
-        btnMakeCalculations.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMakeCalculationsActionPerformed(evt);
-            }
-        });
-
-        btnSeeData.setText("Ver resultados");
-        btnSeeData.setBorderPainted(false);
-        btnSeeData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeeDataActionPerformed(evt);
-            }
-        });
-
-        btnSeeComparations.setText("Comparar escenarios");
-        btnSeeComparations.setBorderPainted(false);
-        btnSeeComparations.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeeComparationsActionPerformed(evt);
-            }
-        });
-
-        tbTitle.setBackground(new java.awt.Color(255, 255, 255));
-        tbTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        tbTitle.setForeground(new java.awt.Color(255, 255, 255));
-        tbTitle.setText("Acciones");
-
-        javax.swing.GroupLayout pnActionsLayout = new javax.swing.GroupLayout(pnActions);
-        pnActions.setLayout(pnActionsLayout);
-        pnActionsLayout.setHorizontalGroup(
-            pnActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnActionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSeeComparations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnActionsLayout.createSequentialGroup()
-                        .addGroup(pnActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnSeeData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnMakeCalculations, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btAddData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnActionsLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tbTitle)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout LeftPanelLayout = new javax.swing.GroupLayout(LeftPanel);
+        LeftPanel.setLayout(LeftPanelLayout);
+        LeftPanelLayout.setHorizontalGroup(
+            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LeftPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        pnActionsLayout.setVerticalGroup(
-            pnActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnActionsLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(tbTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addComponent(btAddData)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnMakeCalculations)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSeeData)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSeeComparations)
-                .addContainerGap(105, Short.MAX_VALUE))
+        LeftPanelLayout.setVerticalGroup(
+            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LeftPanelLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnHeader.setBackground(new java.awt.Color(0, 102, 204));
-        pnHeader.setPreferredSize(new java.awt.Dimension(694, 80));
+        RightPanel.setBackground(new java.awt.Color(128, 210, 200));
 
-        javax.swing.GroupLayout pnHeaderLayout = new javax.swing.GroupLayout(pnHeader);
-        pnHeader.setLayout(pnHeaderLayout);
-        pnHeaderLayout.setHorizontalGroup(
-            pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        SunbrightLabel.setText("Sunbright Citrus Products ®");
+
+        eoqLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        eoqLabel.setForeground(new java.awt.Color(227, 243, 243));
+        eoqLabel.setText("Control de inventarios (EOQ)");
+
+        DemandaEsperadaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DemandaEsperadaTextFieldKeyTyped(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        jLabel3.setText("Demanda esperada:");
+
+        jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        jLabel4.setText("Precio de la unidad:");
+
+        jLabel5.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        jLabel5.setText("Costo por ordenar:");
+
+        jLabel6.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        jLabel6.setText("Costo de almacenaje unitario:");
+
+        PrecioTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PrecioTextFieldKeyTyped(evt);
+            }
+        });
+
+        CostoAlmaceTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CostoAlmaceTextFieldKeyTyped(evt);
+            }
+        });
+
+        CostoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CostoTextFieldKeyTyped(evt);
+            }
+        });
+
+        CalculateBtn.setBackground(new java.awt.Color(227, 243, 243));
+        CalculateBtn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        CalculateBtn.setText("Ver resultados");
+        CalculateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalculateBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout RightPanelLayout = new javax.swing.GroupLayout(RightPanel);
+        RightPanel.setLayout(RightPanelLayout);
+        RightPanelLayout.setHorizontalGroup(
+            RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RightPanelLayout.createSequentialGroup()
+                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RightPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SunbrightLabel))
+                    .addGroup(RightPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(RightPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CostoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(67, 67, 67)
+                                    .addComponent(PrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(RightPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DemandaEsperadaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(RightPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CalculateBtn)
+                                    .addComponent(CostoAlmaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(RightPanelLayout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(eoqLabel)
+                .addContainerGap(230, Short.MAX_VALUE))
+        );
+        RightPanelLayout.setVerticalGroup(
+            RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(eoqLabel)
+                .addGap(108, 108, 108)
+                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(DemandaEsperadaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(PrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CostoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(CostoAlmaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(CalculateBtn)
+                .addGap(12, 12, 12)
+                .addComponent(SunbrightLabel)
+                .addContainerGap())
+        );
+
+        SeparatorPanel.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout SeparatorPanelLayout = new javax.swing.GroupLayout(SeparatorPanel);
+        SeparatorPanel.setLayout(SeparatorPanelLayout);
+        SeparatorPanelLayout.setHorizontalGroup(
+            SeparatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        pnHeaderLayout.setVerticalGroup(
-            pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+        SeparatorPanelLayout.setVerticalGroup(
+            SeparatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        resultsPanel.setBackground(new java.awt.Color(128, 210, 200));
+        resultsPanel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        javax.swing.GroupLayout resultsPanelLayout = new javax.swing.GroupLayout(resultsPanel);
+        resultsPanel.setLayout(resultsPanelLayout);
+        resultsPanelLayout.setHorizontalGroup(
+            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        resultsPanelLayout.setVerticalGroup(
+            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 175, Short.MAX_VALUE)
+        );
+
+        ResultsLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        ResultsLabel.setText("RESULTADOS");
+
+        resultsPanel1.setBackground(new java.awt.Color(128, 210, 200));
+        resultsPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        javax.swing.GroupLayout resultsPanel1Layout = new javax.swing.GroupLayout(resultsPanel1);
+        resultsPanel1.setLayout(resultsPanel1Layout);
+        resultsPanel1Layout.setHorizontalGroup(
+            resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 962, Short.MAX_VALUE)
+        );
+        resultsPanel1Layout.setVerticalGroup(
+            resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 175, Short.MAX_VALUE)
+        );
+
+        btnGenerateGraphs.setBackground(new java.awt.Color(227, 243, 243));
+        btnGenerateGraphs.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btnGenerateGraphs.setText("Ver gráficas comparativas");
+        btnGenerateGraphs.setEnabled(false);
+        btnGenerateGraphs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateGraphsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnActions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnData, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(465, 465, 465)
+                                    .addComponent(ResultsLabel))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(resultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(RightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(resultsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnGenerateGraphs)
+                        .addGap(395, 395, 395)))
+                .addComponent(SeparatorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnActions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SeparatorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pnData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(RightPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LeftPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(ResultsLabel)
+                .addGap(18, 18, 18)
+                .addComponent(resultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resultsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnGenerateGraphs)
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btAddDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddDataActionPerformed
-        btAddData.setEnabled(false);
-        pnData.removeAll();
-        DataFormPanel pnForm = new DataFormPanel();
-        pnData.add(pnForm);
-        pnData.revalidate();
-        pnData.repaint();
-        pnForm.revalidate();
-        pnForm.repaint();
-    }//GEN-LAST:event_btAddDataActionPerformed
+    private void DemandaEsperadaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DemandaEsperadaTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_DemandaEsperadaTextFieldKeyTyped
 
-    private void btnMakeCalculationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeCalculationsActionPerformed
+    private void PrecioTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrecioTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        String s = PrecioTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_PrecioTextFieldKeyTyped
+
+    private void CostoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        String s = CostoTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_CostoTextFieldKeyTyped
+
+    private void CostoAlmaceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoAlmaceTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        String s = CostoAlmaceTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+            evt.consume();
+        }
+ 
+    }//GEN-LAST:event_CostoAlmaceTextFieldKeyTyped
+
+    private void CalculateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateBtnActionPerformed
+        int expectedDemand = Integer.parseInt(DemandaEsperadaTextField.getText());
+        double unitaryPrice = Double.parseDouble(PrecioTextField.getText());
+        double orderingCost = Double.parseDouble(CostoTextField.getText());
+        double storingCost = Double.parseDouble(CostoAlmaceTextField.getText());
+        generalController.createUserInventory(expectedDemand, unitaryPrice, orderingCost, storingCost);
+        uIController.popUpMessage("Se han ingresado correctamente los datos", "Datos guardados", this.getParent());
+       
         if(generalController.getUserInventory() == null) {
             uIController.popUpErrorMessage("No se han guardado los datos para poder realizar los cálculos", "Error", rootPane);
         } else {
-            uIController.popUpMessage("Los datos se calcularon satisfactoriamente", "Datos calculaddos", rootPane);
+            uIController.popUpMessage("Los datos se calcularon satisfactoriamente", "Datos calculados", rootPane);
         }
-    }//GEN-LAST:event_btnMakeCalculationsActionPerformed
-
-    private void btnSeeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeDataActionPerformed
-        btAddData.setEnabled(true);
-        pnData.removeAll();
+       
+        resultsPanel.removeAll();
         InformationPanel pnInfo = new InformationPanel();
-        pnInfo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        pnData.add(pnInfo);
-        pnData.revalidate();
-        pnData.repaint();
+        pnInfo.setSize(resultsPanel.getWidth(), resultsPanel.getHeight());
+        pnInfo.setAlignmentX(resultsPanel.getAlignmentX());
+        pnInfo.setAlignmentY(resultsPanel.getAlignmentY());
+        pnInfo.setBorder(BorderFactory.createEmptyBorder());
+        resultsPanel.add(pnInfo);
         pnInfo.revalidate();
         pnInfo.repaint();
-    }//GEN-LAST:event_btnSeeDataActionPerformed
+        resultsPanel.revalidate();
+        resultsPanel.repaint();
+        
+        resultsPanel1.removeAll();
+        ComparationPanel pnComp = new ComparationPanel();
+        pnComp.setSize(resultsPanel1.getWidth(), resultsPanel1.getHeight());
+        pnComp.setAlignmentX(resultsPanel1.getAlignmentX());
+        pnComp.setAlignmentY(resultsPanel1.getAlignmentY());
+        pnComp.setBorder(BorderFactory.createEmptyBorder());
+        resultsPanel1.add(pnComp);
+        pnComp.revalidate();
+        pnComp.repaint();
+        resultsPanel1.revalidate();
+        resultsPanel1.repaint();
+        
+        btnGenerateGraphs.setVisible(true);
+        btnGenerateGraphs.setEnabled(true);
+        ResultsLabel.setVisible(true);
 
-    private void btnSeeComparationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeComparationsActionPerformed
-        pnData.removeAll();
-        ComparationPanel pnInfo = new ComparationPanel();
-        pnInfo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        pnData.add(pnInfo);
-        pnData.revalidate();
-        pnData.repaint();
-        pnInfo.revalidate();
-        pnInfo.repaint();
-    }//GEN-LAST:event_btnSeeComparationsActionPerformed
+    }//GEN-LAST:event_CalculateBtnActionPerformed
+
+    private void btnGenerateGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateGraphsActionPerformed
+        uIController.popUpMessage("Popup de tablas \nLas tablas estarán listas para el avance final", "Tablas comparativas", rootPane);
+    }//GEN-LAST:event_btnGenerateGraphsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,13 +430,25 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAddData;
-    private javax.swing.JButton btnMakeCalculations;
-    private javax.swing.JButton btnSeeComparations;
-    private javax.swing.JButton btnSeeData;
-    private javax.swing.JPanel pnActions;
-    private javax.swing.JPanel pnData;
-    private javax.swing.JPanel pnHeader;
-    private javax.swing.JLabel tbTitle;
+    private javax.swing.JButton CalculateBtn;
+    private javax.swing.JTextField CostoAlmaceTextField;
+    private javax.swing.JTextField CostoTextField;
+    private javax.swing.JTextField DemandaEsperadaTextField;
+    private javax.swing.JPanel LeftPanel;
+    private javax.swing.JTextField PrecioTextField;
+    private javax.swing.JLabel ResultsLabel;
+    private javax.swing.JPanel RightPanel;
+    private javax.swing.JPanel SeparatorPanel;
+    private javax.swing.JLabel SunbrightLabel;
+    private javax.swing.JButton btnGenerateGraphs;
+    private javax.swing.JLabel eoqLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel resultsPanel;
+    private javax.swing.JPanel resultsPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -61,6 +61,16 @@ public class ComparationPanel extends javax.swing.JPanel {
                                         firstCase.getUnitsToStore(), 
                                         secondCase.getUnitsToStore(), 
                                         thirdCase.getUnitsToStore()});
+        tableModel.addRow(new Object[] {"Inventario promedio", 
+                                        userInventory.getUnitsToStore()/2,
+                                        firstCase.getUnitsToStore()/2,
+                                        secondCase.getUnitsToStore()/2,
+                                        thirdCase.getUnitsToStore()/2});
+        tableModel.addRow(new Object[] {"Veces a ordenar", 
+                                        userInventory.getTimesToOrder(),
+                                        firstCase.getTimesToOrder(),
+                                        secondCase.getTimesToOrder(),
+                                        thirdCase.getTimesToOrder()});
         tableModel.addRow(new Object[] {"Costo total por órdenes",
                                         userInventory.getTotalOrderingCost(),
                                         firstCase.getTotalOrderingCost(),
@@ -107,7 +117,7 @@ public class ComparationPanel extends javax.swing.JPanel {
                 {"Costo total general", null, null, null, null}
             },
             new String [] {
-                "Valores", "Inventario", "Inventario 210", "Inventario 320", "Inventario 440"
+                "Valores", "Inventario", "Caso 1 (210)", "Caso 2 (330)", "Caso 3 (440)"
             }
         ));
         tbInventoryData.setEnabled(false);
@@ -119,17 +129,11 @@ public class ComparationPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(spInformationTable, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

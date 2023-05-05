@@ -33,6 +33,7 @@ public class DataFormPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btSave = new javax.swing.JButton();
         lbExpectedDemand = new javax.swing.JLabel();
         lbUnitaryPrice = new javax.swing.JLabel();
         lbOrderingUnitaryCost = new javax.swing.JLabel();
@@ -41,7 +42,13 @@ public class DataFormPanel extends javax.swing.JPanel {
         tfUnitaryStoringCost = new javax.swing.JTextField();
         tfUnitaryPrice = new javax.swing.JTextField();
         tfOrderingCost = new javax.swing.JTextField();
-        btSave = new javax.swing.JButton();
+
+        btSave.setText("Guardar datos");
+        btSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSaveActionPerformed(evt);
+            }
+        });
 
         lbExpectedDemand.setText("Demanda esperada");
         lbExpectedDemand.setToolTipText("");
@@ -76,13 +83,6 @@ public class DataFormPanel extends javax.swing.JPanel {
             }
         });
 
-        btSave.setText("Guardar datos");
-        btSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSaveActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,11 +105,7 @@ public class DataFormPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbStoringUnitaryCost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfUnitaryStoringCost, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btSave)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(tfUnitaryStoringCost, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -131,8 +127,6 @@ public class DataFormPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbStoringUnitaryCost)
                     .addComponent(tfUnitaryStoringCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(btSave)
                 .addGap(36, 36, 36))
         );
 
