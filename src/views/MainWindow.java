@@ -30,7 +30,8 @@ public class MainWindow extends javax.swing.JFrame {
         ResultsLabel.setVisible(false);
         JScrollPane scroll = new JScrollPane();
         this.getContentPane().add(scroll);
-        this.setSize(969,900);
+        this.setSize(969,1000);
+        this.btnGenerateGraphs.setVisible(false);
     }
 
     /**
@@ -61,12 +62,13 @@ public class MainWindow extends javax.swing.JFrame {
         resultsPanel = new javax.swing.JPanel();
         ResultsLabel = new javax.swing.JLabel();
         resultsPanel1 = new javax.swing.JPanel();
+        btnGenerateGraphs = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 900));
-        setSize(new java.awt.Dimension(1000, 900));
+        setPreferredSize(new java.awt.Dimension(1000, 1300));
+        setSize(new java.awt.Dimension(969, 1100));
 
         LeftPanel.setBackground(new java.awt.Color(227, 243, 243));
 
@@ -96,11 +98,6 @@ public class MainWindow extends javax.swing.JFrame {
         eoqLabel.setForeground(new java.awt.Color(227, 243, 243));
         eoqLabel.setText("Control de inventarios (EOQ)");
 
-        DemandaEsperadaTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DemandaEsperadaTextFieldActionPerformed(evt);
-            }
-        });
         DemandaEsperadaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 DemandaEsperadaTextFieldKeyTyped(evt);
@@ -119,33 +116,18 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         jLabel6.setText("Costo de almacenaje unitario:");
 
-        PrecioTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrecioTextFieldActionPerformed(evt);
-            }
-        });
         PrecioTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PrecioTextFieldKeyTyped(evt);
             }
         });
 
-        CostoAlmaceTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CostoAlmaceTextFieldActionPerformed(evt);
-            }
-        });
         CostoAlmaceTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 CostoAlmaceTextFieldKeyTyped(evt);
             }
         });
 
-        CostoTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CostoTextFieldActionPerformed(evt);
-            }
-        });
         CostoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 CostoTextFieldKeyTyped(evt);
@@ -251,7 +233,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         resultsPanelLayout.setVerticalGroup(
             resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 175, Short.MAX_VALUE)
         );
 
         ResultsLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
@@ -264,33 +246,50 @@ public class MainWindow extends javax.swing.JFrame {
         resultsPanel1.setLayout(resultsPanel1Layout);
         resultsPanel1Layout.setHorizontalGroup(
             resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 962, Short.MAX_VALUE)
         );
         resultsPanel1Layout.setVerticalGroup(
             resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGap(0, 175, Short.MAX_VALUE)
         );
+
+        btnGenerateGraphs.setBackground(new java.awt.Color(227, 243, 243));
+        btnGenerateGraphs.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btnGenerateGraphs.setText("Ver gráficas comparativas");
+        btnGenerateGraphs.setEnabled(false);
+        btnGenerateGraphs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateGraphsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(465, 465, 465)
-                        .addComponent(ResultsLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(resultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(resultsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(465, 465, 465)
+                                    .addComponent(ResultsLabel))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(resultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(RightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(resultsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnGenerateGraphs)
+                        .addGap(395, 395, 395)))
                 .addComponent(SeparatorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -305,96 +304,46 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(ResultsLabel)
                 .addGap(18, 18, 18)
                 .addComponent(resultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(resultsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnGenerateGraphs)
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DemandaEsperadaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DemandaEsperadaTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DemandaEsperadaTextFieldActionPerformed
-
-    private void PrecioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PrecioTextFieldActionPerformed
-
-    private void CostoAlmaceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoAlmaceTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CostoAlmaceTextFieldActionPerformed
-
-    private void CostoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CostoTextFieldActionPerformed
-
     private void DemandaEsperadaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DemandaEsperadaTextFieldKeyTyped
-        if (DemandaEsperadaTextField.getText().length() >= 10) {
-            evt.consume();
-        }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (DemandaEsperadaTextField.getText().trim().length() == 10) {
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_DemandaEsperadaTextFieldKeyTyped
 
     private void PrecioTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrecioTextFieldKeyTyped
-         if (PrecioTextField.getText().length() >= 10) {
-            evt.consume();
-        }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (PrecioTextField.getText().trim().length() == 10) {
+        char c = evt.getKeyChar();
+        String s = PrecioTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_PrecioTextFieldKeyTyped
 
     private void CostoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoTextFieldKeyTyped
-        if (CostoTextField.getText().length() >= 10) {
-            evt.consume();
-        }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (CostoTextField.getText().trim().length() == 10) {
+        char c = evt.getKeyChar();
+        String s = CostoTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_CostoTextFieldKeyTyped
 
     private void CostoAlmaceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoAlmaceTextFieldKeyTyped
-        if (CostoAlmaceTextField.getText().length() >= 10) {
+        char c = evt.getKeyChar();
+        String s = CostoAlmaceTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (CostoAlmaceTextField.getText().trim().length() == 10) {
-            evt.consume();
-        }
+ 
     }//GEN-LAST:event_CostoAlmaceTextFieldKeyTyped
 
     private void CalculateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateBtnActionPerformed
@@ -416,7 +365,7 @@ public class MainWindow extends javax.swing.JFrame {
         pnInfo.setSize(resultsPanel.getWidth(), resultsPanel.getHeight());
         pnInfo.setAlignmentX(resultsPanel.getAlignmentX());
         pnInfo.setAlignmentY(resultsPanel.getAlignmentY());
-        pnInfo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pnInfo.setBorder(BorderFactory.createEmptyBorder());
         resultsPanel.add(pnInfo);
         pnInfo.revalidate();
         pnInfo.repaint();
@@ -428,20 +377,22 @@ public class MainWindow extends javax.swing.JFrame {
         pnComp.setSize(resultsPanel1.getWidth(), resultsPanel1.getHeight());
         pnComp.setAlignmentX(resultsPanel1.getAlignmentX());
         pnComp.setAlignmentY(resultsPanel1.getAlignmentY());
-        pnComp.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pnComp.setBorder(BorderFactory.createEmptyBorder());
         resultsPanel1.add(pnComp);
         pnComp.revalidate();
         pnComp.repaint();
         resultsPanel1.revalidate();
         resultsPanel1.repaint();
         
+        btnGenerateGraphs.setVisible(true);
+        btnGenerateGraphs.setEnabled(true);
         ResultsLabel.setVisible(true);
 
-
-
-
-
     }//GEN-LAST:event_CalculateBtnActionPerformed
+
+    private void btnGenerateGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateGraphsActionPerformed
+        uIController.popUpMessage("Popup de tablas \nLas tablas estarán listas para el avance final", "Tablas comparativas", rootPane);
+    }//GEN-LAST:event_btnGenerateGraphsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -489,6 +440,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel RightPanel;
     private javax.swing.JPanel SeparatorPanel;
     private javax.swing.JLabel SunbrightLabel;
+    private javax.swing.JButton btnGenerateGraphs;
     private javax.swing.JLabel eoqLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
