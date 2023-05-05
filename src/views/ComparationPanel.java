@@ -91,6 +91,16 @@ public class ComparationPanel extends javax.swing.JPanel {
                                         firstCase.getTotalCost(),
                                         secondCase.getTotalCost(),
                                         thirdCase.getTotalCost()});
+        tableModel.addRow(new Object[] {"Precio de bonificación",
+                                        userInventory.getBonificationPrice(),
+                                        firstCase.getBonificationPrice(),
+                                        secondCase.getBonificationPrice(),
+                                        thirdCase.getBonificationPrice()});
+        tableModel.addRow(new Object[] {"Costos finales",
+                                        userInventory.getTotalCost() - userInventory.getBonificationPrice(),
+                                        firstCase.getTotalCost() - firstCase.getBonificationPrice(),
+                                        secondCase.getTotalCost() - secondCase.getBonificationPrice(),
+                                        thirdCase.getTotalCost() - thirdCase.getBonificationPrice()});
     }
 
     /**

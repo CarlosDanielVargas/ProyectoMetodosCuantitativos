@@ -20,6 +20,7 @@ public class Inventory {
     private int unitsToStore;
     private double totalCost;
     private int timesToOrder;
+    private Prize prize;
     
 
     public Inventory(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost) {
@@ -28,14 +29,16 @@ public class Inventory {
         this.orderingUnitaryCost = orderingCost;
         this.storingUnitaryCost = storingCost;
         this.unitsToStore = 0;
+        this.prize = new Prize();
     }
 
-    public Inventory(int expectedDemand, double unitaryPrice, double orderingUnitaryCost, double storingUnitaryCost, int unitsToStore) {
+    public Inventory(int expectedDemand, double unitaryPrice, double orderingUnitaryCost, double storingUnitaryCost, int unitsToStore, Prize prize) {
         this.expectedDemand = expectedDemand;
         this.unitaryPrice = unitaryPrice;
         this.orderingUnitaryCost = orderingUnitaryCost;
         this.storingUnitaryCost = storingUnitaryCost;
         this.unitsToStore = unitsToStore;
+        this.prize = prize;
     }
     
     
@@ -45,6 +48,7 @@ public class Inventory {
         this.orderingUnitaryCost = 0;
         this.storingUnitaryCost = 0;
         this.unitsToStore = 0;
+        this.prize = new Prize();
     }
 
     public int getExpectedDemand() {
@@ -125,6 +129,19 @@ public class Inventory {
     public void setTimesToOrder(int timesToOrder) {
         this.timesToOrder = timesToOrder;
     }
+
+    public Prize getPrize() {
+        return prize;
+    }
+
+    public void setPrize(Prize prize) {
+        this.prize = prize;
+    }
+    
+    public double getBonificationPrice() {
+        return prize.getPrice();
+    }
+    
 
     @Override
     public String toString() {
