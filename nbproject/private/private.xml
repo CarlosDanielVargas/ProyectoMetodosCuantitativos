@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/steve/OneDrive%20-%20Informática%20Empresarial%20Occidente/UCR/7%20CICLO/Metodos%20cuantitativos/Proyecto/ProyectoMetodosCuantitativos/src/views/MainWindow.java</file>
-            <file>file:/C:/Users/steve/OneDrive%20-%20Informática%20Empresarial%20Occidente/UCR/7%20CICLO/Metodos%20cuantitativos/Proyecto/ProyectoMetodosCuantitativos/src/views/InformationPanel.java</file>
-            <file>file:/C:/Users/steve/OneDrive%20-%20Informática%20Empresarial%20Occidente/UCR/7%20CICLO/Metodos%20cuantitativos/Proyecto/ProyectoMetodosCuantitativos/src/views/ComparationPanel.java</file>
-            <file>file:/C:/Users/steve/OneDrive%20-%20Informática%20Empresarial%20Occidente/UCR/7%20CICLO/Metodos%20cuantitativos/Proyecto/ProyectoMetodosCuantitativos/src/views/DataFormPanel.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/controllers/UIController.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/views/BothWindow.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/views/InformationWindow.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/views/MainWindow.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/controllers/InventoryManager.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/views/ComparationWindow.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/controllers/GeneralController.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/views/InformationPanel.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/models/Inventory.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/views/DataFormPanel.java</file>
+            <file>file:/C:/Users/andre/Documents/ProyectosMetodosCuantitativos/ProyectoMetodosCuantitativos/src/views/ComparationPanel.java</file>
         </group>
     </open-files>
 </project-private>
