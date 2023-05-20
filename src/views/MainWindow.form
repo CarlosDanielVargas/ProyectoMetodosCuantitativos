@@ -11,7 +11,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1000, 900]"/>
+      <Dimension value="[969, 1100]"/>
     </Property>
   </Properties>
   <SyntheticProperties>

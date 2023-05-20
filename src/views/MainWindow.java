@@ -291,71 +291,35 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DemandaEsperadaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DemandaEsperadaTextFieldKeyTyped
-        if (DemandaEsperadaTextField.getText().length() >= 10) {
-            evt.consume();
-        }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (DemandaEsperadaTextField.getText().trim().length() == 10) {
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_DemandaEsperadaTextFieldKeyTyped
 
     private void PrecioTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrecioTextFieldKeyTyped
-         if (PrecioTextField.getText().length() >= 10) {
-            evt.consume();
-        }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (PrecioTextField.getText().trim().length() == 10) {
+        char c = evt.getKeyChar();
+        String s = PrecioTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_PrecioTextFieldKeyTyped
 
     private void CostoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoTextFieldKeyTyped
-        if (CostoTextField.getText().length() >= 10) {
-            evt.consume();
-        }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (CostoTextField.getText().trim().length() == 10) {
+        char c = evt.getKeyChar();
+        String s = CostoTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_CostoTextFieldKeyTyped
 
     private void CostoAlmaceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoAlmaceTextFieldKeyTyped
-        if (CostoAlmaceTextField.getText().length() >= 10) {
+        char c = evt.getKeyChar();
+        String s = CostoAlmaceTextField.getText();
+        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
-        int key = evt.getKeyChar();
-
-        boolean numeros = key >= 48 && key <= 57;
-
-        if (!numeros) {
-            evt.consume();
-        }
-
-        if (CostoAlmaceTextField.getText().trim().length() == 10) {
-            evt.consume();
-        }
+ 
     }//GEN-LAST:event_CostoAlmaceTextFieldKeyTyped
 
     private void CalculateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateBtnActionPerformed
@@ -399,10 +363,6 @@ public class MainWindow extends javax.swing.JFrame {
         PrecioTextField.setEditable(false);
         CostoTextField.setEditable(false);
         CostoAlmaceTextField.setEditable(false);
-
-
-
-
 
     }//GEN-LAST:event_CalculateBtnActionPerformed
 

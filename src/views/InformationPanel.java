@@ -40,6 +40,8 @@ public class InformationPanel extends javax.swing.JPanel {
         tableModel.addRow(new Object[] {"Costo de orden", userInventory.getOrderingUnitaryCost()});
         tableModel.addRow(new Object[] {"Costo unitario al almacenar", userInventory.getStoringUnitaryCost()});
         tableModel.addRow(new Object[] {"Cantidad de unidades óptima", userInventory.getUnitsToStore()});
+        tableModel.addRow(new Object[] {"Inventario promedio", userInventory.getUnitsToStore()/2});
+        tableModel.addRow(new Object[] {"Veces a ordenar", userInventory.getTimesToOrder()});
         tableModel.addRow(new Object[] {"Costo total por órdenes", userInventory.getTotalOrderingCost()});
         tableModel.addRow(new Object[] {"Costo total por almacenaje", userInventory.getTotalStoringCost()});
         tableModel.addRow(new Object[] {"Costo total de las unidades", userInventory.getTotalUnitsCost()});
@@ -65,12 +67,14 @@ public class InformationPanel extends javax.swing.JPanel {
                 {"Costo de ordenar", null},
                 {"Costo de inventariado por unidad", null},
                 {"Cantidad de unidades óptima", null},
+                {"Inventario promedio", null},
+                {"Cantidad de órdenes", ""},
                 {"Costo total para ordenar", null},
                 {"Costo total de inventariado", null},
                 {"Costo total general", null}
             },
             new String [] {
-                "Valores", "Caso 1"
+                "Valores", "Inventario"
             }
         ));
         tbInventoryData.setEnabled(false);

@@ -48,9 +48,9 @@
                   <Data value="Costo total general"/>
                 </Column>
                 <Column editable="true" title="Inventario" type="java.lang.Object"/>
-                <Column editable="true" title="Inventario 210" type="java.lang.Object"/>
-                <Column editable="true" title="Inventario 320" type="java.lang.Object"/>
-                <Column editable="true" title="Inventario 440" type="java.lang.Object"/>
+                <Column editable="true" title="Caso 1 (210)" type="java.lang.Object"/>
+                <Column editable="true" title="Caso 2 (330)" type="java.lang.Object"/>
+                <Column editable="true" title="Caso 3 (440)" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
