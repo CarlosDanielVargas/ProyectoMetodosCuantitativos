@@ -22,7 +22,7 @@ public class MainWindow extends javax.swing.JFrame {
     private final UIController uIController;
     private InformationPanel actualInfo;
     private ComparationPanel actualComp;
-    
+
     /**
      * Creates new form MainWindow
      */
@@ -32,8 +32,9 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         btViewInfo.setVisible(false);
         btViewComp.setVisible(false);
-        btCleanData.setVisible(false);
+        btnSeeGraphs.setVisible(false);
         btViewBoth.setVisible(false);
+        btCleanData.setVisible(false);
         this.setSize(968, 480);
     }
 
@@ -62,15 +63,16 @@ public class MainWindow extends javax.swing.JFrame {
         CostoTextField = new javax.swing.JTextField();
         CalculateBtn = new javax.swing.JButton();
         btViewInfo = new javax.swing.JButton();
-        btCleanData = new javax.swing.JButton();
+        btnSeeGraphs = new javax.swing.JButton();
         btViewComp = new javax.swing.JButton();
         btViewBoth = new javax.swing.JButton();
+        btCleanData = new javax.swing.JButton();
         SeparatorPanel = new javax.swing.JPanel();
 
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(1000, 900));
+        setSize(new java.awt.Dimension(969, 1100));
 
         LeftPanel.setBackground(new java.awt.Color(227, 243, 243));
 
@@ -154,12 +156,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        btCleanData.setBackground(new java.awt.Color(227, 243, 243));
-        btCleanData.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        btCleanData.setText("Limpiar datos");
-        btCleanData.addActionListener(new java.awt.event.ActionListener() {
+        btnSeeGraphs.setBackground(new java.awt.Color(227, 243, 243));
+        btnSeeGraphs.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btnSeeGraphs.setText("Ver gráficas");
+        btnSeeGraphs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCleanDataActionPerformed(evt);
+                btnSeeGraphsActionPerformed(evt);
             }
         });
 
@@ -178,6 +180,15 @@ public class MainWindow extends javax.swing.JFrame {
         btViewBoth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btViewBothActionPerformed(evt);
+            }
+        });
+
+        btCleanData.setBackground(new java.awt.Color(227, 243, 243));
+        btCleanData.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btCleanData.setText("Limpiar datos");
+        btCleanData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCleanDataActionPerformed(evt);
             }
         });
 
@@ -212,7 +223,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(btViewInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btViewComp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btViewBoth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btCleanData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSeeGraphs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btCleanData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(67, 67, 67))
             .addGroup(RightPanelLayout.createSequentialGroup()
                 .addGap(184, 184, 184)
@@ -247,8 +259,10 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(CostoAlmaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btCleanData))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(btnSeeGraphs))
+                .addGap(18, 18, 18)
+                .addComponent(btCleanData)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CalculateBtn)
                 .addGap(32, 32, 32)
                 .addComponent(SunbrightLabel)
@@ -265,7 +279,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         SeparatorPanelLayout.setVerticalGroup(
             SeparatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,7 +314,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void PrecioTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrecioTextFieldKeyTyped
         char c = evt.getKeyChar();
         String s = PrecioTextField.getText();
-        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+        if (!Character.isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_PrecioTextFieldKeyTyped
@@ -308,7 +322,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void CostoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoTextFieldKeyTyped
         char c = evt.getKeyChar();
         String s = CostoTextField.getText();
-        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+        if (!Character.isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_CostoTextFieldKeyTyped
@@ -316,63 +330,84 @@ public class MainWindow extends javax.swing.JFrame {
     private void CostoAlmaceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoAlmaceTextFieldKeyTyped
         char c = evt.getKeyChar();
         String s = CostoAlmaceTextField.getText();
-        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+        if (!Character.isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
- 
+
     }//GEN-LAST:event_CostoAlmaceTextFieldKeyTyped
 
     private void CalculateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateBtnActionPerformed
-        int expectedDemand = Integer.parseInt(DemandaEsperadaTextField.getText());
-        double unitaryPrice = Double.parseDouble(PrecioTextField.getText());
-        double orderingCost = Double.parseDouble(CostoTextField.getText());
-        double storingCost = Double.parseDouble(CostoAlmaceTextField.getText());
-        generalController.createUserInventory(expectedDemand, unitaryPrice, orderingCost, storingCost);
-        uIController.popUpMessage("Se han ingresado correctamente los datos", "Datos guardados", this.getParent());
-       
-        if(generalController.getUserInventory() == null) {
-            uIController.popUpErrorMessage("No se han guardado los datos para poder realizar los cálculos", "Error", rootPane);
-        } else {
-            uIController.popUpMessage("Los datos se calcularon satisfactoriamente", "Datos calculados", rootPane);
-        }
-       
-        
-        InformationPanel pnInfo = new InformationPanel();
-        pnInfo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        pnInfo.revalidate();
-        pnInfo.repaint();
-        
-        actualInfo = pnInfo;
-        btViewInfo.setVisible(true);
-                
-        
-        ComparationPanel pnComp = new ComparationPanel();
-        pnComp.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        pnComp.revalidate();
-        pnComp.repaint();
-        
-        actualComp = pnComp;
-        btViewComp.setVisible(true);
-        
-        
-        btViewBoth.setVisible(true);
-        btCleanData.setVisible(true);
-        CalculateBtn.setVisible(false);
-        
-        DemandaEsperadaTextField.setEditable(false);
-        PrecioTextField.setEditable(false);
-        CostoTextField.setEditable(false);
-        CostoAlmaceTextField.setEditable(false);
+        try {
+            int expectedDemand = Integer.parseInt(DemandaEsperadaTextField.getText());
+            double unitaryPrice = Double.parseDouble(PrecioTextField.getText());
+            double orderingCost = Double.parseDouble(CostoTextField.getText());
+            double storingCost = Double.parseDouble(CostoAlmaceTextField.getText());
+            generalController.createUserInventory(expectedDemand, unitaryPrice, orderingCost, storingCost);
+            uIController.popUpMessage("Se han ingresado correctamente los datos", "Datos guardados", rootPane);
 
+            if (generalController.getUserInventory() == null) {
+                uIController.popUpErrorMessage("No se han guardado los datos para poder realizar los cálculos", "Error", rootPane);
+            } else {
+                uIController.popUpMessage("Los datos se calcularon satisfactoriamente", "Datos calculados", rootPane);
+            }
+
+            InformationPanel pnInfo = new InformationPanel();
+            pnInfo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            pnInfo.revalidate();
+            pnInfo.repaint();
+
+            actualInfo = pnInfo;
+            btViewInfo.setVisible(true);
+
+            ComparationPanel pnComp = new ComparationPanel();
+            pnComp.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            pnComp.revalidate();
+            pnComp.repaint();
+
+            actualComp = pnComp;
+            btViewComp.setVisible(true);
+
+            btViewBoth.setVisible(true);
+            btnSeeGraphs.setVisible(true);
+            CalculateBtn.setVisible(false);
+            btCleanData.setVisible(true);
+
+            DemandaEsperadaTextField.setEditable(false);
+            PrecioTextField.setEditable(false);
+            CostoTextField.setEditable(false);
+            CostoAlmaceTextField.setEditable(false);
+        } catch (Exception e) {
+            uIController.popUpErrorMessage("No se han guardado los datos para poder realizar los cálculos", "Error", rootPane);
+        }
     }//GEN-LAST:event_CalculateBtnActionPerformed
 
     private void btViewInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewInfoActionPerformed
         // TODO add your handling code here:
         InformationWindow newInfoWindow = new InformationWindow(this, true, actualInfo);
-        
+
         newInfoWindow.setVisible(true);
-        
+
     }//GEN-LAST:event_btViewInfoActionPerformed
+
+    private void btnSeeGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeGraphsActionPerformed
+       GraphWindow newGraphWindow = new GraphWindow(this, true);
+       newGraphWindow.setVisible(true);
+    }//GEN-LAST:event_btnSeeGraphsActionPerformed
+
+    private void btViewCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewCompActionPerformed
+        // TODO add your handling code here:
+        ComparationWindow newCompWindow = new ComparationWindow(this, true, actualComp);
+
+        newCompWindow.setVisible(true);
+    }//GEN-LAST:event_btViewCompActionPerformed
+
+    private void btViewBothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewBothActionPerformed
+        // TODO add your handling code here:
+        BothWindow newBothWindow = new BothWindow(this, true, actualInfo, actualComp);
+
+        newBothWindow.setVisible(true);
+
+    }//GEN-LAST:event_btViewBothActionPerformed
 
     private void btCleanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCleanDataActionPerformed
         // TODO add your handling code here:
@@ -380,33 +415,19 @@ public class MainWindow extends javax.swing.JFrame {
         PrecioTextField.setText("");
         CostoTextField.setText("");
         CostoAlmaceTextField.setText("");
-        
+
         DemandaEsperadaTextField.setEditable(true);
         PrecioTextField.setEditable(true);
         CostoTextField.setEditable(true);
         CostoAlmaceTextField.setEditable(true);
-        
+
         CalculateBtn.setVisible(true);
-        btCleanData.setVisible(false);
+        btnSeeGraphs.setVisible(false);
         btViewInfo.setVisible(false);
         btViewComp.setVisible(false);
         btViewBoth.setVisible(false);
+        btCleanData.setVisible(false);
     }//GEN-LAST:event_btCleanDataActionPerformed
-
-    private void btViewCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewCompActionPerformed
-        // TODO add your handling code here:
-        ComparationWindow newCompWindow = new ComparationWindow(this, true, actualComp);
-        
-        newCompWindow.setVisible(true);
-    }//GEN-LAST:event_btViewCompActionPerformed
-
-    private void btViewBothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewBothActionPerformed
-        // TODO add your handling code here:
-        BothWindow newBothWindow = new BothWindow(this, true, actualInfo, actualComp);
-        
-        newBothWindow.setVisible(true);
-        
-    }//GEN-LAST:event_btViewBothActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,6 +478,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btViewBoth;
     private javax.swing.JButton btViewComp;
     private javax.swing.JButton btViewInfo;
+    private javax.swing.JButton btnSeeGraphs;
     private javax.swing.JLabel eoqLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

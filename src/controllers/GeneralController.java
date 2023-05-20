@@ -20,9 +20,9 @@ public class GeneralController {
     private final InventoryManager inventoryManager;
 
     private GeneralController() {
-        this.firstCaseInventory = new Inventory(1000, 9.90, 10, 1, 210);
-        this.secondCaseInventory = new Inventory(1000, 9.90, 10, 1, 320);
-        this.thirdCaseInventory = new Inventory(1000, 9.90, 10, 1, 440);
+        this.firstCaseInventory = new Inventory(1000, 9.90, 10, 1, 210, 3000);
+        this.secondCaseInventory = new Inventory(1000, 9.90, 10, 1, 320, 5000);
+        this.thirdCaseInventory = new Inventory(1000, 9.90, 10, 1, 440, 8000);
         this.inventoryManager = InventoryManager.getInventoryManager();
         calculateCases();
     }

@@ -37,6 +37,10 @@ public class InventoryManager {
         this.inventory.setUnitsToStore((int)Math.ceil(Math.sqrt(a)));
     }
     
+    public double[] getData(){
+        return inventory.getData();
+    }
+    
     public void makeCalculations(){
         int quantity = this.inventory.getUnitsToStore();
         int timesOrdered = (int)Math.ceil(this.inventory.getExpectedDemand()/quantity);
