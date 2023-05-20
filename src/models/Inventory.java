@@ -20,7 +20,7 @@ public class Inventory {
     private int unitsToStore;
     private double totalCost;
     private int timesToOrder;
-    private Prize prize;
+    private double prizePrice;
     
 
     public Inventory(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost) {
@@ -29,16 +29,16 @@ public class Inventory {
         this.orderingUnitaryCost = orderingCost;
         this.storingUnitaryCost = storingCost;
         this.unitsToStore = 0;
-        this.prize = new Prize();
+        this.prizePrice = 0;
     }
 
-    public Inventory(int expectedDemand, double unitaryPrice, double orderingUnitaryCost, double storingUnitaryCost, int unitsToStore, Prize prize) {
+    public Inventory(int expectedDemand, double unitaryPrice, double orderingUnitaryCost, double storingUnitaryCost, int unitsToStore, double prizePrice) {
         this.expectedDemand = expectedDemand;
         this.unitaryPrice = unitaryPrice;
         this.orderingUnitaryCost = orderingUnitaryCost;
         this.storingUnitaryCost = storingUnitaryCost;
         this.unitsToStore = unitsToStore;
-        this.prize = prize;
+        this.prizePrice = prizePrice;
     }
     
     
@@ -48,7 +48,7 @@ public class Inventory {
         this.orderingUnitaryCost = 0;
         this.storingUnitaryCost = 0;
         this.unitsToStore = 0;
-        this.prize = new Prize();
+        this.prizePrice = 0;
     }
 
     public int getExpectedDemand() {
@@ -130,18 +130,17 @@ public class Inventory {
         this.timesToOrder = timesToOrder;
     }
 
-    public Prize getPrize() {
-        return prize;
+    public double getPrizePrice() {
+        return prizePrice;
     }
 
-    public void setPrize(Prize prize) {
-        this.prize = prize;
+    public void setPrizePrice(double prizePrice) {
+        this.prizePrice = prizePrice;
     }
     
-    public double getBonificationPrice() {
-        return prize.getPrice();
+    public double[] getData() {
+        return new double[]{totalCost, prizePrice, (totalCost - prizePrice)};
     }
-    
 
     @Override
     public String toString() {

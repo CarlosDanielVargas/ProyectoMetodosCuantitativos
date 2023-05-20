@@ -20,6 +20,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private final GeneralController generalController;
     private final UIController uIController;
+    private InformationPanel actualInfo;
+    private ComparationPanel actualComp;
+
     /**
      * Creates new form MainWindow
      */
@@ -27,11 +30,12 @@ public class MainWindow extends javax.swing.JFrame {
         this.generalController = GeneralController.getGeneralController();
         this.uIController = UIController.getUIController();
         initComponents();
-        ResultsLabel.setVisible(false);
-        JScrollPane scroll = new JScrollPane();
-        this.getContentPane().add(scroll);
-        this.setSize(969,1000);
-        this.btnGenerateGraphs.setVisible(false);
+        btViewInfo.setVisible(false);
+        btViewComp.setVisible(false);
+        btnSeeGraphs.setVisible(false);
+        btViewBoth.setVisible(false);
+        btCleanData.setVisible(false);
+        this.setSize(968, 480);
     }
 
     /**
@@ -58,16 +62,16 @@ public class MainWindow extends javax.swing.JFrame {
         CostoAlmaceTextField = new javax.swing.JTextField();
         CostoTextField = new javax.swing.JTextField();
         CalculateBtn = new javax.swing.JButton();
+        btViewInfo = new javax.swing.JButton();
+        btnSeeGraphs = new javax.swing.JButton();
+        btViewComp = new javax.swing.JButton();
+        btViewBoth = new javax.swing.JButton();
+        btCleanData = new javax.swing.JButton();
         SeparatorPanel = new javax.swing.JPanel();
-        resultsPanel = new javax.swing.JPanel();
-        ResultsLabel = new javax.swing.JLabel();
-        resultsPanel1 = new javax.swing.JPanel();
-        btnGenerateGraphs = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 1300));
         setSize(new java.awt.Dimension(969, 1100));
 
         LeftPanel.setBackground(new java.awt.Color(227, 243, 243));
@@ -136,10 +140,55 @@ public class MainWindow extends javax.swing.JFrame {
 
         CalculateBtn.setBackground(new java.awt.Color(227, 243, 243));
         CalculateBtn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        CalculateBtn.setText("Ver resultados");
+        CalculateBtn.setText("Calcular resultados");
         CalculateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalculateBtnActionPerformed(evt);
+            }
+        });
+
+        btViewInfo.setBackground(new java.awt.Color(227, 243, 243));
+        btViewInfo.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btViewInfo.setText("Ver informacion");
+        btViewInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btViewInfoActionPerformed(evt);
+            }
+        });
+
+        btnSeeGraphs.setBackground(new java.awt.Color(227, 243, 243));
+        btnSeeGraphs.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btnSeeGraphs.setText("Ver gráficas");
+        btnSeeGraphs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeeGraphsActionPerformed(evt);
+            }
+        });
+
+        btViewComp.setBackground(new java.awt.Color(227, 243, 243));
+        btViewComp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btViewComp.setText("Ver comparativa");
+        btViewComp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btViewCompActionPerformed(evt);
+            }
+        });
+
+        btViewBoth.setBackground(new java.awt.Color(227, 243, 243));
+        btViewBoth.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btViewBoth.setText("Ver ambas");
+        btViewBoth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btViewBothActionPerformed(evt);
+            }
+        });
+
+        btCleanData.setBackground(new java.awt.Color(227, 243, 243));
+        btCleanData.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        btCleanData.setText("Limpiar datos");
+        btCleanData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCleanDataActionPerformed(evt);
             }
         });
 
@@ -148,38 +197,43 @@ public class MainWindow extends javax.swing.JFrame {
         RightPanelLayout.setHorizontalGroup(
             RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RightPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(RightPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CostoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(67, 67, 67)
+                            .addComponent(PrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(RightPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DemandaEsperadaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(RightPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SunbrightLabel))
-                    .addGroup(RightPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(RightPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CostoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(67, 67, 67)
-                                    .addComponent(PrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(RightPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(DemandaEsperadaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(RightPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CalculateBtn)
-                                    .addComponent(CostoAlmaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(CalculateBtn)
+                            .addComponent(CostoAlmaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btViewInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btViewComp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btViewBoth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSeeGraphs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btCleanData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(67, 67, 67))
             .addGroup(RightPanelLayout.createSequentialGroup()
                 .addGap(184, 184, 184)
                 .addComponent(eoqLabel)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(232, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SunbrightLabel)
+                .addGap(18, 18, 18))
         );
         RightPanelLayout.setVerticalGroup(
             RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,22 +243,28 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(108, 108, 108)
                 .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(DemandaEsperadaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DemandaEsperadaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btViewInfo))
                 .addGap(18, 18, 18)
                 .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(PrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btViewComp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CostoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(btViewBoth))
                 .addGap(18, 18, 18)
                 .addGroup(RightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(CostoAlmaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                    .addComponent(CostoAlmaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSeeGraphs))
+                .addGap(18, 18, 18)
+                .addComponent(btCleanData)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CalculateBtn)
-                .addGap(12, 12, 12)
+                .addGap(32, 32, 32)
                 .addComponent(SunbrightLabel)
                 .addContainerGap())
         );
@@ -222,93 +282,23 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        resultsPanel.setBackground(new java.awt.Color(128, 210, 200));
-        resultsPanel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-
-        javax.swing.GroupLayout resultsPanelLayout = new javax.swing.GroupLayout(resultsPanel);
-        resultsPanel.setLayout(resultsPanelLayout);
-        resultsPanelLayout.setHorizontalGroup(
-            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        resultsPanelLayout.setVerticalGroup(
-            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 175, Short.MAX_VALUE)
-        );
-
-        ResultsLabel.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        ResultsLabel.setText("RESULTADOS");
-
-        resultsPanel1.setBackground(new java.awt.Color(128, 210, 200));
-        resultsPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-
-        javax.swing.GroupLayout resultsPanel1Layout = new javax.swing.GroupLayout(resultsPanel1);
-        resultsPanel1.setLayout(resultsPanel1Layout);
-        resultsPanel1Layout.setHorizontalGroup(
-            resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 962, Short.MAX_VALUE)
-        );
-        resultsPanel1Layout.setVerticalGroup(
-            resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 175, Short.MAX_VALUE)
-        );
-
-        btnGenerateGraphs.setBackground(new java.awt.Color(227, 243, 243));
-        btnGenerateGraphs.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        btnGenerateGraphs.setText("Ver gráficas comparativas");
-        btnGenerateGraphs.setEnabled(false);
-        btnGenerateGraphs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerateGraphsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(465, 465, 465)
-                                    .addComponent(ResultsLabel))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(resultsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(RightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(resultsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGenerateGraphs)
-                        .addGap(395, 395, 395)))
-                .addComponent(SeparatorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SeparatorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(SeparatorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(RightPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LeftPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(ResultsLabel)
-                .addGap(18, 18, 18)
-                .addComponent(resultsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(resultsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGenerateGraphs)
-                .addGap(0, 14, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addComponent(RightPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LeftPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -324,7 +314,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void PrecioTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrecioTextFieldKeyTyped
         char c = evt.getKeyChar();
         String s = PrecioTextField.getText();
-        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+        if (!Character.isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_PrecioTextFieldKeyTyped
@@ -332,7 +322,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void CostoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoTextFieldKeyTyped
         char c = evt.getKeyChar();
         String s = CostoTextField.getText();
-        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+        if (!Character.isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
     }//GEN-LAST:event_CostoTextFieldKeyTyped
@@ -340,59 +330,104 @@ public class MainWindow extends javax.swing.JFrame {
     private void CostoAlmaceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoAlmaceTextFieldKeyTyped
         char c = evt.getKeyChar();
         String s = CostoAlmaceTextField.getText();
-        if (!Character.  isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
+        if (!Character.isDigit(c) && (c != '.') || (s.contains(".") && (c == '.'))) {
             evt.consume();
         }
- 
+
     }//GEN-LAST:event_CostoAlmaceTextFieldKeyTyped
 
     private void CalculateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateBtnActionPerformed
-        int expectedDemand = Integer.parseInt(DemandaEsperadaTextField.getText());
-        double unitaryPrice = Double.parseDouble(PrecioTextField.getText());
-        double orderingCost = Double.parseDouble(CostoTextField.getText());
-        double storingCost = Double.parseDouble(CostoAlmaceTextField.getText());
-        generalController.createUserInventory(expectedDemand, unitaryPrice, orderingCost, storingCost);
-        uIController.popUpMessage("Se han ingresado correctamente los datos", "Datos guardados", this.getParent());
-       
-        if(generalController.getUserInventory() == null) {
-            uIController.popUpErrorMessage("No se han guardado los datos para poder realizar los cálculos", "Error", rootPane);
-        } else {
-            uIController.popUpMessage("Los datos se calcularon satisfactoriamente", "Datos calculados", rootPane);
-        }
-       
-        resultsPanel.removeAll();
-        InformationPanel pnInfo = new InformationPanel();
-        pnInfo.setSize(resultsPanel.getWidth(), resultsPanel.getHeight());
-        pnInfo.setAlignmentX(resultsPanel.getAlignmentX());
-        pnInfo.setAlignmentY(resultsPanel.getAlignmentY());
-        pnInfo.setBorder(BorderFactory.createEmptyBorder());
-        resultsPanel.add(pnInfo);
-        pnInfo.revalidate();
-        pnInfo.repaint();
-        resultsPanel.revalidate();
-        resultsPanel.repaint();
-        
-        resultsPanel1.removeAll();
-        ComparationPanel pnComp = new ComparationPanel();
-        pnComp.setSize(resultsPanel1.getWidth(), resultsPanel1.getHeight());
-        pnComp.setAlignmentX(resultsPanel1.getAlignmentX());
-        pnComp.setAlignmentY(resultsPanel1.getAlignmentY());
-        pnComp.setBorder(BorderFactory.createEmptyBorder());
-        resultsPanel1.add(pnComp);
-        pnComp.revalidate();
-        pnComp.repaint();
-        resultsPanel1.revalidate();
-        resultsPanel1.repaint();
-        
-        btnGenerateGraphs.setVisible(true);
-        btnGenerateGraphs.setEnabled(true);
-        ResultsLabel.setVisible(true);
+        try {
+            int expectedDemand = Integer.parseInt(DemandaEsperadaTextField.getText());
+            double unitaryPrice = Double.parseDouble(PrecioTextField.getText());
+            double orderingCost = Double.parseDouble(CostoTextField.getText());
+            double storingCost = Double.parseDouble(CostoAlmaceTextField.getText());
+            generalController.createUserInventory(expectedDemand, unitaryPrice, orderingCost, storingCost);
+            uIController.popUpMessage("Se han ingresado correctamente los datos", "Datos guardados", rootPane);
 
+            if (generalController.getUserInventory() == null) {
+                uIController.popUpErrorMessage("No se han guardado los datos para poder realizar los cálculos", "Error", rootPane);
+            } else {
+                uIController.popUpMessage("Los datos se calcularon satisfactoriamente", "Datos calculados", rootPane);
+            }
+
+            InformationPanel pnInfo = new InformationPanel();
+            pnInfo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            pnInfo.revalidate();
+            pnInfo.repaint();
+
+            actualInfo = pnInfo;
+            btViewInfo.setVisible(true);
+
+            ComparationPanel pnComp = new ComparationPanel();
+            pnComp.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            pnComp.revalidate();
+            pnComp.repaint();
+
+            actualComp = pnComp;
+            btViewComp.setVisible(true);
+
+            btViewBoth.setVisible(true);
+            btnSeeGraphs.setVisible(true);
+            CalculateBtn.setVisible(false);
+            btCleanData.setVisible(true);
+
+            DemandaEsperadaTextField.setEditable(false);
+            PrecioTextField.setEditable(false);
+            CostoTextField.setEditable(false);
+            CostoAlmaceTextField.setEditable(false);
+        } catch (Exception e) {
+            uIController.popUpErrorMessage("No se han guardado los datos para poder realizar los cálculos", "Error", rootPane);
+        }
     }//GEN-LAST:event_CalculateBtnActionPerformed
 
-    private void btnGenerateGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateGraphsActionPerformed
-        uIController.popUpMessage("Popup de tablas \nLas tablas estarán listas para el avance final", "Tablas comparativas", rootPane);
-    }//GEN-LAST:event_btnGenerateGraphsActionPerformed
+    private void btViewInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewInfoActionPerformed
+        // TODO add your handling code here:
+        InformationWindow newInfoWindow = new InformationWindow(this, true, actualInfo);
+
+        newInfoWindow.setVisible(true);
+
+    }//GEN-LAST:event_btViewInfoActionPerformed
+
+    private void btnSeeGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeeGraphsActionPerformed
+       GraphWindow newGraphWindow = new GraphWindow(this, true);
+       newGraphWindow.setVisible(true);
+    }//GEN-LAST:event_btnSeeGraphsActionPerformed
+
+    private void btViewCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewCompActionPerformed
+        // TODO add your handling code here:
+        ComparationWindow newCompWindow = new ComparationWindow(this, true, actualComp);
+
+        newCompWindow.setVisible(true);
+    }//GEN-LAST:event_btViewCompActionPerformed
+
+    private void btViewBothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btViewBothActionPerformed
+        // TODO add your handling code here:
+        BothWindow newBothWindow = new BothWindow(this, true, actualInfo, actualComp);
+
+        newBothWindow.setVisible(true);
+
+    }//GEN-LAST:event_btViewBothActionPerformed
+
+    private void btCleanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCleanDataActionPerformed
+        // TODO add your handling code here:
+        DemandaEsperadaTextField.setText("");
+        PrecioTextField.setText("");
+        CostoTextField.setText("");
+        CostoAlmaceTextField.setText("");
+
+        DemandaEsperadaTextField.setEditable(true);
+        PrecioTextField.setEditable(true);
+        CostoTextField.setEditable(true);
+        CostoAlmaceTextField.setEditable(true);
+
+        CalculateBtn.setVisible(true);
+        btnSeeGraphs.setVisible(false);
+        btViewInfo.setVisible(false);
+        btViewComp.setVisible(false);
+        btViewBoth.setVisible(false);
+        btCleanData.setVisible(false);
+    }//GEN-LAST:event_btCleanDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,11 +471,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField DemandaEsperadaTextField;
     private javax.swing.JPanel LeftPanel;
     private javax.swing.JTextField PrecioTextField;
-    private javax.swing.JLabel ResultsLabel;
     private javax.swing.JPanel RightPanel;
     private javax.swing.JPanel SeparatorPanel;
     private javax.swing.JLabel SunbrightLabel;
-    private javax.swing.JButton btnGenerateGraphs;
+    private javax.swing.JButton btCleanData;
+    private javax.swing.JButton btViewBoth;
+    private javax.swing.JButton btViewComp;
+    private javax.swing.JButton btViewInfo;
+    private javax.swing.JButton btnSeeGraphs;
     private javax.swing.JLabel eoqLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -448,7 +486,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel resultsPanel;
-    private javax.swing.JPanel resultsPanel1;
     // End of variables declaration//GEN-END:variables
 }
