@@ -5,7 +5,6 @@
 package controllers;
 
 import models.Inventory;
-import models.Prize;
 
 /**
  *
