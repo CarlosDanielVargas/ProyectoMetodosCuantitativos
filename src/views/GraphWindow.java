@@ -30,10 +30,11 @@ public class GraphWindow extends javax.swing.JDialog {
         chart.addLegend("Costo total", new Color(245, 189, 135));
         chart.addLegend("Precio premio", new Color(135, 189,  245));
         chart.addLegend("Inversión final", new Color(189, 135, 245));
-        chart.addData(new ModelChart("Inventario dado", generalController.getUserInventory().getData()));
-        chart.addData(new ModelChart("Caso 1 (210)", generalController.getFirstCaseInventory().getData()));
-        chart.addData(new ModelChart("Caso 2 (330)", generalController.getSecondCaseInventory().getData()));
-        chart.addData(new ModelChart("Caso 3 (440)", generalController.getThirdCaseInventory().getData()));
+        chart.addData(new ModelChart(generalController.getUserInventory().getName(), generalController.getUserInventory().getData()));
+        chart.addData(new ModelChart(generalController.getFirstCaseInventory().getName(), generalController.getFirstCaseInventory().getData()));
+        chart.addData(new ModelChart(generalController.getSecondCaseInventory().getName(), generalController.getSecondCaseInventory().getData()));
+        chart.addData(new ModelChart(generalController.getThirdCaseInventory().getName(), generalController.getThirdCaseInventory().getData()));
+        lbBestOption.setText(generalController.getBestOption());
     }
 
     /**
@@ -48,6 +49,9 @@ public class GraphWindow extends javax.swing.JDialog {
         resultsPanel1 = new javax.swing.JPanel();
         chart = new views.charts.Chart();
         jLabel4 = new javax.swing.JLabel();
+        lbBestOptionText = new javax.swing.JLabel();
+        lbBestOption = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         resultsPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -59,27 +63,54 @@ public class GraphWindow extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         jLabel4.setText("Gráfico 1: Comparación de casos según el costo total, precio del premio e inversión final");
 
+        lbBestOptionText.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        lbBestOptionText.setText("<html>Se recomienda tomar el caso donde la inversión final sea menor. </html>");
+        lbBestOptionText.setFocusCycleRoot(true);
+
+        lbBestOption.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        lbBestOption.setForeground(new java.awt.Color(255, 0, 0));
+        lbBestOption.setText("Mejor opción");
+
+        jLabel2.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("Mejor opción:");
+
         javax.swing.GroupLayout resultsPanel1Layout = new javax.swing.GroupLayout(resultsPanel1);
         resultsPanel1.setLayout(resultsPanel1Layout);
         resultsPanel1Layout.setHorizontalGroup(
             resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resultsPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(resultsPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(resultsPanel1Layout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addComponent(jLabel4))
+                    .addGroup(resultsPanel1Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(lbBestOptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbBestOption, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(resultsPanel1Layout.createSequentialGroup()
+                        .addContainerGap(160, Short.MAX_VALUE)
+                        .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 1049, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         resultsPanel1Layout.setVerticalGroup(
             resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resultsPanel1Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+            .addGroup(resultsPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(resultsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(resultsPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbBestOption))
+                    .addComponent(lbBestOptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         resultsPanel4.setBackground(new java.awt.Color(227, 243, 243));
@@ -94,7 +125,7 @@ public class GraphWindow extends javax.swing.JDialog {
             .addGroup(resultsPanel4Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addContainerGap(422, Short.MAX_VALUE))
+                .addContainerGap(1146, Short.MAX_VALUE))
         );
         resultsPanel4Layout.setVerticalGroup(
             resultsPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +161,10 @@ public class GraphWindow extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private views.charts.Chart chart;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbBestOption;
+    private javax.swing.JLabel lbBestOptionText;
     private javax.swing.JPanel resultsPanel1;
     private javax.swing.JPanel resultsPanel4;
     // End of variables declaration//GEN-END:variables

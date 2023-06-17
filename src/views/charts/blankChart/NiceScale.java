@@ -47,7 +47,7 @@ public class NiceScale {
             } else if (fraction <= 1.2) {
                 niceFraction = 1.3;
             } else if (fraction <= 2) {
-                niceFraction = 2;
+                niceFraction = 1.4;
             } else if (fraction <= 5) {
                 niceFraction = 5;
             } else {

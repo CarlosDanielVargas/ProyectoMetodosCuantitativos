@@ -21,24 +21,27 @@ public class Inventory {
     private double totalCost;
     private int timesToOrder;
     private double prizePrice;
+    private String name;
     
 
-    public Inventory(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost) {
+    public Inventory(int expectedDemand, double unitaryPrice, double orderingCost, double storingCost, String name) {
         this.expectedDemand = expectedDemand;
         this.unitaryPrice = unitaryPrice;
         this.orderingUnitaryCost = orderingCost;
         this.storingUnitaryCost = storingCost;
         this.unitsToStore = 0;
         this.prizePrice = 0;
+        this.name = name;
     }
 
-    public Inventory(int expectedDemand, double unitaryPrice, double orderingUnitaryCost, double storingUnitaryCost, int unitsToStore, double prizePrice) {
+    public Inventory(int expectedDemand, double unitaryPrice, double orderingUnitaryCost, double storingUnitaryCost, int unitsToStore, double prizePrice, String name) {
         this.expectedDemand = expectedDemand;
         this.unitaryPrice = unitaryPrice;
         this.orderingUnitaryCost = orderingUnitaryCost;
         this.storingUnitaryCost = storingUnitaryCost;
         this.unitsToStore = unitsToStore;
         this.prizePrice = prizePrice;
+        this.name = name;
     }
     
     
@@ -49,6 +52,7 @@ public class Inventory {
         this.storingUnitaryCost = 0;
         this.unitsToStore = 0;
         this.prizePrice = 0;
+        this.name = "";
     }
 
     public int getExpectedDemand() {
@@ -140,6 +144,14 @@ public class Inventory {
     
     public double[] getData() {
         return new double[]{totalCost, prizePrice, (totalCost - prizePrice)};
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
